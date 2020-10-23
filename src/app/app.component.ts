@@ -30,4 +30,39 @@ export class AppComponent {
       })
     ]),
   });
+
+  onClickGroup() {
+    console.log(this.group);
+    const validForm = this.group.valid;
+    if (validForm) {
+      alert("Fromulario correcto");
+    } else {
+      alert("Fromulario incorrecto");
+    }
+  }
+  onAddComment() {
+    (this.group.get("comments") as FormArray).push(
+      new FormGroup({
+        title: new FormControl(),
+        comment: new FormControl()
+      })
+    );
+  }
+  onRemoveComment(index: number) {
+    (this.group.get("comments") as FormArray).removeAt(index);
+  }
+  getComments() {
+    return (this.group.get("comments") as FormArray).controls;
+  }
+
+  validateAge(control: AbstractControl) {
+    const age = control.value;
+    let error = null;
+    if (age < 18) {
+      error = { ...error, menor: "Eres un escuincle" };
+    }
+    if (!parseInt(age, 32)) {
+      error = { ...error, nulo : "El campo debe contener solo numeros" }
+    }
+  }
 }
