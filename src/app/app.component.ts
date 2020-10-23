@@ -14,14 +14,12 @@ import {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'AngularForm';
-
   formBuilder: FormGroup;
 
   group: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required]),
     lastName: new FormControl("", [Validators.required]),
-    age: new FormControl("", [Validators.required]),
+    age: new FormControl("", [Validators.required, this.validateAge]),
     civilState: new FormControl("", [Validators.required]),
     sex: new FormControl("", [Validators.required]),
     comments: new FormArray([
@@ -64,5 +62,15 @@ export class AppComponent {
     if (!parseInt(age, 32)) {
       error = { ...error, nulo : "El campo debe contener solo numeros" }
     }
+    return error;
+  }
+
+  getError(controlName: string, key: string, value: string) : string {
+    let error = "";
+    const control = this.group.get(controlName);
+    if (control.dirty && control.errors[key]) {
+      error = value;
+    }
+    return error;
   }
 }
