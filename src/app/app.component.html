@@ -4,17 +4,24 @@
     <h4>Ingrese los siguientes datos...</h4>
 
     <fieldset>
-      <input type="text" formControlName="name" placeholder="Nombre">
+      <input type="text" formControlName="name" placeholder="Nombre" />
       <div *ngIf="group.get('name').invalid && group.get('name').dirty">
         <p *ngIf="group.get('name').getError('required')">
-          {{ getError('name', 'required','campo requerido') }}
+          {{ getError("name", "required", "campo requerido") }}
         </p>
       </div>
-
-
-      <input type="text" formControlName="lastName" placeholder="Apellido">
-
     </fieldset>
+
+    <fieldset>
+      <input type="text" formControlName="lastName" placeholder="Apellido" />
+      <div *ngIf="group.get('lastName').invalid && group.get('lastName').dirty">
+        <p *ngIf="group.get('lastName').getError('required')">
+          {{ getError("lastName", "required", "campo requerido") }}
+        </p>
+      </div>
+    </fieldset>
+
+
 
   </form>
 </div>
