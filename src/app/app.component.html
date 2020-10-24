@@ -22,27 +22,45 @@
     </fieldset>
 
     <fieldset>
-			<input formControlName="age" placeholder="Edad" type="number">
-			<div *ngIf="group.get('age').invalid && group.get('age').dirty">
-				<p *ngIf="group.get('age').getError('required')"> Campo requerido. </p>
-        <p *ngIf="group.get('age').getError('menor')"> No eres mayor de edad </p>
-        <p *ngIf="group.get('age').getError('letras')"> El valor debe ser numerico </p>
-			</div>
+      <input formControlName="age" placeholder="Edad" type="number" />
+      <div *ngIf="group.get('age').invalid && group.get('age').dirty">
+        <p *ngIf="group.get('age').getError('required')">Campo requerido.</p>
+        <p *ngIf="group.get('age').getError('menor')">No eres mayor de edad</p>
+        <p *ngIf="group.get('age').getError('letras')">
+          El valor debe ser numerico
+        </p>
+      </div>
     </fieldset>
 
     <fieldset formArrayName="comments">
-      <div *ngFor="let comment of getComments(); index as com;">
+      <div *ngFor="let comment of getComments(); index as com">
         <div [formGroupName]="com">
           <fieldset>
-            <input type="text" formControlName="comment" placeholder="Escriba su comentario">
-            <button class="btnRemoveComment" (click)="onRemoveComment()">Borrar comentario</button>
+            <input
+              type="text"
+              formControlName="comment"
+              placeholder="Escriba su comentario"
+            />
+            <button class="btnRemoveComment" (click)="onRemoveComment()">
+              Borrar comentario
+            </button>
           </fieldset>
-          </div>
         </div>
-        <button class="btnAddComment" (click)="onAddComment()">Agregar comentario</button>
+      </div>
+      <button class="btnAddComment" (click)="onAddComment()">
+        Agregar comentario
+      </button>
     </fieldset>
 
+    <fieldset>
+      <div>
+        <p>Género:</p>
+        <input [(ngModel)]="sex" id="Masculino" type="radio" value="Masculino" name="gender" formControlName="gender">Masculino
+        <input [(ngModel)]="sex" id="Femenino" type="radio" value="Femenino" name="gender" formControlName="gender">Femenino
+      </div>
+    </fieldset>
 
+    
 
   </form>
 </div>

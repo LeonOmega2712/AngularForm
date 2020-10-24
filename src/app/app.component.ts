@@ -15,13 +15,13 @@ import {
 })
 export class AppComponent {
   formBuilder: FormGroup;
-
+  sex='Masculino';
   group: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required]),
     lastName: new FormControl("", [Validators.required]),
     age: new FormControl("", [Validators.required, this.validateAge]),
     civilState: new FormControl("", [Validators.required]),
-    sex: new FormControl("", [Validators.required]),
+    gender: new FormControl("", [Validators.required]),
     comments: new FormArray([
       new FormGroup({
         comment: new FormControl("")
