@@ -60,7 +60,17 @@
       </div>
     </fieldset>
 
-    
+    <fieldset>
+      <p>Estado civil</p>
+      <select name="estadoCivil" formControlName="civilState" >
+        <option selected="selected">Soltero</option>
+        <option>Casado</option>
+        <option>Divorciado</option>
+      </select>
+    </fieldset>
 
+    <fieldset>
+      <button (click)="onClickGroup()" type="submit" name="submit" id="btnSubmit" >Enviar formulario</button>
+    </fieldset>
   </form>
 </div>
