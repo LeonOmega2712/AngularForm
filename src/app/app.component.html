@@ -30,5 +30,19 @@
 			</div>
     </fieldset>
 
+    <fieldset formArrayName="comments">
+      <div *ngFor="let comment of getComments(); index as com;">
+        <div [formGroupName]="com">
+          <fieldset>
+            <input type="text" formControlName="comment" placeholder="Escriba su comentario">
+            <button class="btnRemoveComment" (click)="onRemoveComment()">Borrar comentario</button>
+          </fieldset>
+          </div>
+        </div>
+        <button class="btnAddComment" (click)="onAddComment()">Agregar comentario</button>
+    </fieldset>
+
+
+
   </form>
 </div>

@@ -24,7 +24,7 @@ export class AppComponent {
     sex: new FormControl("", [Validators.required]),
     comments: new FormArray([
       new FormGroup({
-        comment: new FormControl("Add a comment here")
+        comment: new FormControl("")
       })
     ]),
   });
