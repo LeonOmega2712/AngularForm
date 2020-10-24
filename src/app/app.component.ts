@@ -59,8 +59,8 @@ export class AppComponent {
     if (age < 18) {
       error = { ...error, menor: "Eres un escuincle" };
     }
-    if (!parseInt(age, 32)) {
-      error = { ...error, nulo : "El campo debe contener solo numeros" }
+    if (!parseInt(age, 16)) {
+      error = { ...error, letras : "El campo debe contener solo numeros" }
     }
     return error;
   }

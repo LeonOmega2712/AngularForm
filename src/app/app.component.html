@@ -21,7 +21,14 @@
       </div>
     </fieldset>
 
-
+    <fieldset>
+			<input formControlName="age" placeholder="Edad" type="number">
+			<div *ngIf="group.get('age').invalid && group.get('age').dirty">
+				<p *ngIf="group.get('age').getError('required')"> Campo requerido. </p>
+        <p *ngIf="group.get('age').getError('menor')"> No eres mayor de edad </p>
+        <p *ngIf="group.get('age').getError('letras')"> El valor debe ser numerico </p>
+			</div>
+    </fieldset>
 
   </form>
 </div>
