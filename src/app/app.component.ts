@@ -16,6 +16,7 @@ import {
 export class AppComponent {
   formBuilder: FormGroup;
   sex = 'Masculino';
+  civilState = 'Soltero';
   group: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),

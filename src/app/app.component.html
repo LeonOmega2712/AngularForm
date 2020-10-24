@@ -62,8 +62,8 @@
 
     <fieldset>
       <p>Estado civil</p>
-      <select name="estadoCivil" formControlName="civilState" >
-        <option selected="selected">Soltero</option>
+      <select name="estadoCivil" formControlName="civilState" [(ngModel)]="civilState">
+        <option>Soltero</option>
         <option>Casado</option>
         <option>Divorciado</option>
       </select>
